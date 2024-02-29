@@ -1,7 +1,82 @@
-.home {
+/* Styles for Header Section */
+.header {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically center align items */
+    justify-content: center; /* Horizontally center align items */
+    flex-direction: row; /* Align items vertically */
+    margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+.header h1 {
+    margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
+
+.logo {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Styles for Featured Flies Section */
+.featured-flies {
+    margin-bottom: 20px; /* Add some bottom margin for spacing */
     text-align: center;
 }
 
-.home-header {
-    text-align: center;
+.container {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Horizontally center align items */
+}
+
+.fly-card {
+    margin: 10px; /* Add some margin around each fly card */
+    padding: 10px; /* Add some padding inside each fly card */
+    border: 1px solid #ccc; /* Add a border around each fly card */
+    border-radius: 5px; /* Add some border radius for rounded corners */
+    width: 250px; /* Set a fixed width for each fly card */
+}
+
+.fly-card h2 {
+    margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
+
+.fly-card img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Add some border radius for rounded corners */
+}
+
+.fly-card h3 {
+    margin-top: 10px; /* Add some top margin for spacing */
+}
+
+/* Styles for Testimonials Section */
+.testimonials {
+    margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+.testimonial {
+    margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
+
+/* Styles for Footer Section */
+footer {
+    background-color: #f0f0f0; /* Add a background color */
+    padding: 20px; /* Add some padding inside the footer */
+}
+
+footer ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+footer ul li {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 10px; /* Add some right margin for spacing */
+}
+
+footer ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Set text color */
 }
