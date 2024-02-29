@@ -7,8 +7,6 @@ function Navbar() {
         <div className="navbar">
             <NavLink to='/'> Home </NavLink>
             <NavLink to='/flies'> Flies</NavLink>
-            <NavLink to='/species'>Search by Fish Species</NavLink>
-            <NavLink to='/bugs'>Search bugs by region</NavLink>
         </div>
     )
 }

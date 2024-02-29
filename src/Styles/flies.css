@@ -1,13 +1,19 @@
 header {
-    font-size: 24px;
+    font-size: 34px;
     font-weight: bold;
     margin-bottom: 20px;
+    text-align: center;
   }
 
   .fly-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    justify-content: center; /* Center the grid horizontally */
+    align-items: center; /* Center the grid vertically */
+    gap: 20px; /* Adjust the gap between grid items */
+    max-width: 1200px; /* Optional: Set a maximum width for the grid */
+    margin: 0 auto; /* Optional: Center the grid container itself */
+    padding: 20px; /* Optional: Add padding around the grid container */
   }
   
   /* Style for each fly card */
@@ -15,7 +21,7 @@ header {
     display: flex; /* Use flexbox */
     flex-direction: column; /* Stack children vertically */
     align-items: center;
-    border: 1px solid #ccc;
+    border: 5px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
@@ -29,7 +35,30 @@ header {
   
   /* Style for fly image */
   .fly-card img {
-    max-width: 60px;
-    height: 60px;
+    max-width: 300px;
+    height: 300px;
     border-radius: 5px;
   }
+
+  .flies-container {
+    position: relative;
+}
+
+.filters-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+
+.filter_type,
+.filter_cycle,
+.filter_species {
+    margin-right: 20px; /* Adjust as needed */
+}
+
+.search-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
