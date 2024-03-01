@@ -8,6 +8,7 @@ fi
 echo "Launching frontend..."
 cd hatch-match-frontend
 npm install
+npm install axios
 npm start &
 
 sleep 5
@@ -17,5 +18,6 @@ cd ../hatch-match-backend
 pip install flask-cors
 pipenv install
 sleep 5
-pipenv run python hatch_match_API/main.py
+pipenv run python seed.py
+pipenv run python main.py
 

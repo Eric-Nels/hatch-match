@@ -3,8 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
 import Flies from "./Flies";
-import Species from "./Species"
-import Bugs from "./Bugs";
+import SuggestionForm from "./SuggestionForm";
 
 
 function App() {
@@ -52,8 +51,7 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/flies" element={<Flies flies={flies} isOpen={isOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />
-                <Route path="/species" element={<Species species={flies} />} />
-                <Route path="/bugs" element={<Bugs />} />
+                <Route path="/suggestions" element={<SuggestionForm />} />
                 <Route path="/" element={<Home featuredFlies={featuredFlies} isOpen={isOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />    
             </Routes>    
         </div>

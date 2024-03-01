@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 
-from DB.__init__ import CONN, CURSOR
 from DB.flies import Flies
-from DB.fly_type import Fly_type
-from DB.species import Species
-from DB.fly_fish_species import FlyFishSpecies  # Import FlyFishSpecies
+from DB.suggestions import Suggestions
 
 def seed_database():
     try:
         Flies.drop_table()
         Flies.create_table()
+
+        Suggestions.drop_table()
+        Suggestions.create_table()
 
         Flies.create("RiverKeeper Soft Hackle Cripple", "https://www.johnkreft.com/wp-content/uploads/2020/01/RiverKeeper-Soft-Hackle-Cripple-PMD.jpg", "Dry", "Mayfly", "Adult")
         Flies.create("Sparkle Dun PMD", "https://www.johnkreft.com/wp-content/uploads/2016/11/Sparkle-Dun-PMD.jpg.webp", "Dry", "Mayfly", "Adult")
