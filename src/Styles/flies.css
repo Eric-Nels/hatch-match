@@ -12,7 +12,7 @@ header {
     align-items: center; /* Center the grid vertically */
     gap: 20px; /* Adjust the gap between grid items */
     max-width: 1200px; /* Optional: Set a maximum width for the grid */
-    margin: 0 auto; /* Optional: Center the grid container itself */
+    margin: 20px auto; /* Optional: Center the grid container itself */
     padding: 20px; /* Optional: Add padding around the grid container */
   }
   
@@ -61,4 +61,27 @@ header {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #e9e9e9;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: #fff;
 }

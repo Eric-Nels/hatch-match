@@ -11,17 +11,22 @@ function App() {
     const [flies, setFlies] = useState([])
     const [isOpen, setIsOpen] = useState(false);
     const [selectedFly, setSelectedFly] = useState([])
-
-    useEffect(()=> {
-        fetch('http://127.0.0.1:5000/api/data')
-        .then((r)=>r.json())
-        .then((data)=> {
-            setFlies(data)
-        })
-    }, [])
-
     const [featuredFlies, setFeaturedFlies] = useState([]);
 
+    useEffect(()=> {
+        fetchFliesData(); 
+    }, []);
+
+    function fetchFliesData() {
+        fetch('http://127.0.0.1:5000/api/flies')
+            .then((r) => r.json())
+            .then((data) => {
+                setFlies(data);
+                console.log(flies)
+            })
+            .catch((error) => console.error('Error fetching flies:', error));
+    }
+    
     useEffect(() => {
         if (flies.length > 0) {
             const selectedFlies = selectThreeRandomFlies();
@@ -50,9 +55,9 @@ function App() {
         <div className="App">
             <Navbar />
             <Routes>
-                <Route path="/flies" element={<Flies flies={flies} isOpen={isOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />
+                <Route path="/flies" element={<Flies flies={flies} isOpen={isOpen} setIsOpen={setIsOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />
                 <Route path="/suggestions" element={<SuggestionForm />} />
-                <Route path="/" element={<Home featuredFlies={featuredFlies} isOpen={isOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />    
+                <Route path="/" element={<Home featuredFlies={featuredFlies} isOpen={isOpen} setIsOpen={setIsOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />    
             </Routes>    
         </div>
     )
