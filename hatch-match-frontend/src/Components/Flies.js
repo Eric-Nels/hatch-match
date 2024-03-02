@@ -3,18 +3,24 @@ import React, { useEffect, useState } from "react";
 import FlyPopUp from './FlyPopUp';
 import Search from './Search';
 
-function Flies({flies, selectedFly, setSelectedFly, isOpen, togglePopup}) {
+function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePopup}) {
 
     const [selectedType, setSelectedType] = useState('')
     const [selectedCycle, setSelectedCycle] = useState('')
     const [selectedSpecies, setSelectedSpecies] = useState('')
     const [searchValue, setSearchValue] = useState('')
     const [searchResult, setSearchResult] = useState([])
+    const [currentPage, setCurrentPage] = useState(1);
+    const [cardsPerPage] = useState(12);
     
 
     useEffect(() => {
         filterFlies();
-    }, [selectedType, selectedCycle, selectedSpecies, searchValue]);
+    }, [selectedType, selectedCycle, selectedSpecies, searchValue, flies]);
+
+    useEffect(() => {
+        setCurrentPage(1); 
+    }, [selectedType, selectedCycle, selectedSpecies, searchValue, flies]);
 
     function filterFlies() {
         let filteredFlies = flies.filter(fly => {
@@ -41,10 +47,33 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, togglePopup}) {
 
     function handleSearchChange(e) {
         setSearchValue(e.target.value)
-    } 
+    }
+
+    function togglePage(pageNumber) {
+        setCurrentPage(pageNumber);
+    }
+
+    const indexOfLastCard = currentPage * cardsPerPage;
+    const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+    const currentCards = searchResult.slice(indexOfFirstCard, indexOfLastCard);
+    
+    useEffect(() => {
+        function handleEscapeKey(event) {
+            if (event.key === 'Escape') {
+                setIsOpen(false);
+            }
+        }
+        window.addEventListener('keydown', handleEscapeKey);
+        return () => {
+            window.removeEventListener('keydown', handleEscapeKey);
+        };
+    }, [setIsOpen]);
 
 
-    return (
+    if (flies.length === 0) {
+        return <div>Loading...</div>;
+    } else {
+        return (
         <div className='flies-container'>
             <header>Flies</header>
             <div className='filters-container'>
@@ -86,7 +115,7 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, togglePopup}) {
                 <FlyPopUp isOpen={isOpen} togglePopup={togglePopup} selectedFly={selectedFly}/>
             </div>
             <div className='fly-grid'>
-                {searchResult.map((fly) => {
+                {currentCards.map((fly) => {
                     return (
                         <div key={fly.id} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
                             <h2 onClick={togglePopup}>{fly.fly_name}</h2>
@@ -95,8 +124,17 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, togglePopup}) {
                     )                    
                 })}
             </div>
+            <div className='pagination'>
+            {searchResult.length > cardsPerPage &&
+                    Array.from({ length: Math.ceil(searchResult.length / cardsPerPage) }, (_, index) => (
+                        <button key={index} onClick={() => togglePage(index + 1)}>
+                            {index + 1}
+                        </button>
+                    ))}
+            </div>
         </div>    
-    )
+        )
+    }
 }
 
 export default Flies;

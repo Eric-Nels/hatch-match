@@ -2,6 +2,7 @@
 
 from DB.flies import Flies
 from DB.suggestions import Suggestions
+from DB.bugs import Bugs
 
 def seed_database():
     try:
@@ -10,6 +11,20 @@ def seed_database():
 
         Suggestions.drop_table()
         Suggestions.create_table()
+
+        Bugs.drop_table()
+        Bugs.create_table()
+
+        Bugs.create("Mayfly", "Nymph", "https://www.teatown.org/wp-content/uploads/2020/05/5789175336_758e4c82e7_b.jpg")
+        Bugs.create("Mayfly", "Emerger", "https://blog.fullingmill.com/wp-content/uploads/2022/05/Photo-2.jpg")
+        Bugs.create("Mayfly", "Adult", "https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Invertebrates/invertebrate_mayflies_600x300.jpg")
+        Bugs.create("Caddis", "Nymph", "https://ascentflyfishing.com/product_images/uploaded_images/caddis-larva-cased-caddis.jpg")
+        Bugs.create("Caddis", "Emerger", "https://www.riseformflyfishing.com/Site/images/hatches/caddis_giant_casemaker_pupa.jpg")
+        Bugs.create("Caddis", "Adult", "https://cdn.britannica.com/15/137315-050-70C02BDD/Adult-caddisfly.jpg")
+        Bugs.create("Stonefly", "Nymph", "https://news.orvis.com/wp-content/uploads/2018/05/stonefly1.jpg")
+        Bugs.create("Stonefly", "Adult", "https://ars.els-cdn.com/content/image/3-s2.0-B978012370626300185X-gr5.jpg")
+        Bugs.create("Midge", "Adult", "https://www.flyfishersatthecrossing.org/wp-content/uploads/2018/03/MIdge.jpg")
+        
 
         Flies.create("RiverKeeper Soft Hackle Cripple", "https://www.johnkreft.com/wp-content/uploads/2020/01/RiverKeeper-Soft-Hackle-Cripple-PMD.jpg", "Dry", "Mayfly", "Adult")
         Flies.create("Sparkle Dun PMD", "https://www.johnkreft.com/wp-content/uploads/2016/11/Sparkle-Dun-PMD.jpg.webp", "Dry", "Mayfly", "Adult")
