@@ -38,6 +38,19 @@ function Home({ featuredFlies, togglePopup, setSelectedFly, isOpen, setIsOpen, s
                     })}
                 </div>
             </div>
+            <div className='catch-of-week-container'>
+                <div className='catch-of-week-card'>
+                    <h2>Catch of the week</h2>
+                    <div className='catch-card'>
+                        <a href='#'>@socialmedialink</a>
+                        <img className='catch-image' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq4Q_j_5LKlFR7fCRhAf5muEwLOQG9Oebuow&usqp=CAU' alt='Not Available' />
+                    </div>
+                    <label>Fly used: 
+                        <img className='fly-used-image' src='https://www.johnkreft.com/wp-content/uploads/2019/09/Miasmic-October-Caddis-Pupa-Emerger.jpg' alt='Not Available' />
+                        <p>Miasmic October Caddis Pupa-Emerger</p>
+                    </label>
+                </div>
+            </div>
             <section className="testimonials">
                 <div className="container">
                     <div className="testimonial">
