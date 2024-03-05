@@ -10,6 +10,8 @@ const SuggestionForm = () => {
     const [showThanks, setShowThanks] = useState(false)
     const [selectedImitation, setSelectedImitation] = useState('')
     const [selectedLifeCycle, setSelectedLifeCycle] = useState('')
+    const [catchImage, setCatchImage] = useState(null)
+    const [social, setSocial] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,11 +28,36 @@ const SuggestionForm = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            setCatchImage(null)
             setShowThanks(!showThanks)
         } catch (error) {
             console.error('Error submitting suggestion:', error);
         }
     };
+
+    const handleCatchSubmit = async (e) => {
+        e.preventDefault();
+
+        const catchFormData = new FormData();
+        catchFormData.append('catch_image', catchImage);
+        catchFormData.append('social', social);
+
+        try {
+            await axios.post('http://localhost:5000/api/catch_of_week', catchFormData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            setImage(null)
+            setShowThanks(!showThanks)
+        } catch (error) {
+            console.error('Error submitting:', error);
+        }
+    }
+
+    function handleNameChange(e) {
+        setName(e.target.value)
+    }
 
     function handleImageChange(e) {
         setImage(e.target.files[0]);
@@ -42,6 +69,14 @@ const SuggestionForm = () => {
 
     function handleLifeCycleChange(e) {
         setSelectedLifeCycle(e.target.value)
+    }
+
+    function handleCatchImageChange(e) {
+        setCatchImage(e.target.files[0]);
+    }
+
+    function handleSocialChange(e) {
+        setSocial(e.target.value)
     }
 
     useEffect(() => {
@@ -57,12 +92,12 @@ const SuggestionForm = () => {
     }, []);
 
     return (
-        <div>
+        <div className='Uploads'>
             <div className='form-container'>
                 <h2>Suggestion Box</h2>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Fly Name:</label><br />
-                    <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} /><br /><br />
+                    <input type="text" id="name" name="name" value={name} onChange={handleNameChange} /><br /><br />
                     <label htmlFor='imitation'>Imitation:</label>
                     <select value={selectedImitation} onChange={handleImitationChange}>
                         <option> </option>
@@ -80,14 +115,23 @@ const SuggestionForm = () => {
                         <option value='Emerger'>Emerger</option>
                         <option value='Adult'>Adult</option>
                     </select>
-                    
                     <label htmlFor="image">Upload Image:</label><br />
                     <input type="file" id="image" name="image" onChange={handleImageChange} /><br /><br />
                     <button type="submit">Submit</button>
                 </form>
             </div>
             <div>
-                <ThanksPopUp showThanks={showThanks} setShowThanks={setShowThanks}/>
+                <ThanksPopUp showThanks={showThanks} setShowThanks={setShowThanks} image={image} catchImage={catchImage}/>
+            </div>
+            <div>
+                <h2>Catch of the Week Upload</h2>
+                <form onSubmit={handleCatchSubmit}>
+                    <label htmlFor='catch_image'>Catch Image:</label><br />
+                    <input type='file' id='catch_image' name='catch_image' onChange={handleCatchImageChange} /><bgr />
+                    <label htmlFor='social'>Social Media Link:</label><br />
+                    <input type='text' id='social' name='social' value={social} onChange={handleSocialChange} /><br />
+                    <button type='submit'>Submit</button>
+                </form>
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
+from DB.catch_of_week import Catch_of_week
 from DB.suggestions import Suggestions
 
 app = Flask(__name__)
@@ -54,6 +55,22 @@ def submit_suggestion():
     except Exception as e:
         app.logger.error("Error occurred while submitting suggestion: %s", str(e))
         return jsonify({"error": "An error occurred while submitting suggestion"}), 500
+    
+
+@app.route("/api/catch_of_week", methods=['POST'])
+def submit_catch_of_week():
+    try:
+        
+        catch_image = request.files['catch_image'].read()
+        social = request.form['social']
+
+        catch_of_week = Catch_of_week(catch_image=catch_image, social=social)
+        catch_of_week.save()
+
+        return jsonify({"message": "Catch submitted successfully"})
+    except Exception as e:
+        app.logger.error("Error occurred while submitting: %s", str(e))
+        return jsonify({"error": "An error occurred while submitting"}), 500
 
 
 if __name__ == "__main__":

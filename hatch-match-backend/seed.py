@@ -3,17 +3,21 @@
 from DB.flies import Flies
 from DB.suggestions import Suggestions
 from DB.bugs import Bugs
+from DB.catch_of_week import Catch_of_week
 
 def seed_database():
     try:
         Flies.drop_table()
         Flies.create_table()
 
+        Bugs.drop_table()
+        Bugs.create_table()   
+
         Suggestions.drop_table()
         Suggestions.create_table()
 
-        Bugs.drop_table()
-        Bugs.create_table()
+        Catch_of_week.drop_table()
+        Catch_of_week.create_table()
 
         Bugs.create("Mayfly", "Nymph", "https://www.teatown.org/wp-content/uploads/2020/05/5789175336_758e4c82e7_b.jpg")
         Bugs.create("Mayfly", "Emerger", "https://blog.fullingmill.com/wp-content/uploads/2022/05/Photo-2.jpg")

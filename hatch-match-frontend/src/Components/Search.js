@@ -1,6 +1,6 @@
 import '../Styles/search.css'
 
-function Search({ searchValue, setSearchValue, handleSearchChange, handleSearchSubmit}) {
+function Search({ searchValue, handleSearchChange, handleSearchSubmit}) {
 
     return(
         <div className="search-container">

@@ -80,3 +80,40 @@ footer ul li a {
     text-decoration: none; /* Remove underline from links */
     color: #333; /* Set text color */
 }
+
+main {
+    text-align: center;
+    font-size: 150%;
+}
+
+.catch-of-week-container {
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+    margin-top: 20px; /* adjust margin as needed */
+}
+
+.catch-of-week-card {
+    text-align: center; /* center contents inside the card */
+    max-width: 50%; /* adjust max-width as needed */
+    padding: 20px;
+    border: 5px solid #ccc; /* optional: add border for visual separation */
+    border-radius: 8px; /* optional: add border-radius for rounded corners */
+}
+
+.catch-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.catch-image {
+    width: 97%;
+    height: auto;
+}
+
+.fly-used-image {
+    width: 30%;
+    height: auto;
+}
