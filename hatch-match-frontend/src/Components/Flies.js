@@ -119,7 +119,7 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
                     return (
                         <div key={fly.id} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
                             <h2 onClick={togglePopup}>{fly.fly_name}</h2>
-                            <img src={fly.fly_image} alt='Image not available'/>
+                            <img  className='fly-image' src={fly.fly_image} alt='Image not available'/>
                         </div>
                     )                    
                 })}

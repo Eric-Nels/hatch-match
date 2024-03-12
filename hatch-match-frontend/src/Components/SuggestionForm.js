@@ -120,10 +120,8 @@ const SuggestionForm = () => {
                     <button type="submit">Submit</button>
                 </form>
             </div>
-            <div>
-                <ThanksPopUp showThanks={showThanks} setShowThanks={setShowThanks} image={image} catchImage={catchImage}/>
-            </div>
-            <div>
+            <ThanksPopUp showThanks={showThanks} setShowThanks={setShowThanks} image={image} catchImage={catchImage}/>
+            <div className='catch-of-week-container'>
                 <h2>Catch of the Week Upload</h2>
                 <form onSubmit={handleCatchSubmit}>
                     <label htmlFor='catch_image'>Catch Image:</label><br />

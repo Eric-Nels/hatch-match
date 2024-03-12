@@ -3,64 +3,55 @@ header {
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
-  }
+}
 
-  .fly-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-    justify-content: center; /* Center the grid horizontally */
-    align-items: center; /* Center the grid vertically */
-    gap: 20px; /* Adjust the gap between grid items */
-    max-width: 1200px; /* Optional: Set a maximum width for the grid */
-    margin: 20px auto; /* Optional: Center the grid container itself */
-    padding: 20px; /* Optional: Add padding around the grid container */
-  }
-  
-  /* Style for each fly card */
-  .fly-card {
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center;
-    border: 5px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  
-  /* Style for fly name */
-  .fly-card h2 {
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  /* Style for fly image */
-  .fly-card img {
-    max-width: 300px;
-    height: 300px;
-    border-radius: 5px;
-  }
+.flies-container {
+  position: relative;
+  padding-top: 15px;
+}
 
-  .flies-container {
-    position: relative;
+.fly-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  justify-content: center; /* Center the grid horizontally */
+  align-items: center; /* Center the grid vertically */
+  gap: 20px; /* Adjust the gap between grid items */
+  max-width: 1200px; /* Optional: Set a maximum width for the grid */
+  margin: 20px auto; /* Optional: Center the grid container itself */
+  padding: 20px; /* Optional: Add padding around the grid container */
+}
+
+.fly-card {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center;
+  border: 5px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 250px;
+}
+
+.fly-card h2 {
+  text-align: center;
+}
+
+.fly-card img {
+  width: 300px;
+  height: 300px;
 }
 
 .filters-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-}
-
-.filter_type,
-.filter_cycle,
-.filter_species {
-    margin-right: 20px; /* Adjust as needed */
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
 }
 
 .search-container {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .pagination {
@@ -85,3 +76,4 @@ header {
   background-color: #007bff;
   color: #fff;
 }
+
