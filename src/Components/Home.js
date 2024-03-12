@@ -17,7 +17,7 @@ function Home({ featuredFlies, togglePopup, setSelectedFly, isOpen, setIsOpen, s
     }, [setIsOpen]);
 
     return (
-        <div>
+        <div className='home'>
             <header className="header">
                 <h1>Welcome to Hatch Match</h1>
                 <img className='logo' src='https://media.istockphoto.com/id/1292289580/vector/dry-fly.jpg?s=612x612&w=0&k=20&c=oNnjoO5_t9hPTSczXk3j38TNvJCgymmlXCbGL7Bnha8=' alt='Hatch Match Logo' />
@@ -26,12 +26,12 @@ function Home({ featuredFlies, togglePopup, setSelectedFly, isOpen, setIsOpen, s
             <div className="featured-flies">
                 <FlyPopUp isOpen={isOpen} togglePopup={togglePopup} selectedFly={selectedFly}/>
                 <h2>Featured Flies</h2>
-                <div className="container">
+                <div className="featured-flies-container">
                     {featuredFlies.map((fly) => {
                         return(
                             <div key={fly.id} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
                                 <h2 >{fly.fly_name}</h2>
-                                <img src={fly.fly_image} alt='Not available'/>
+                                <img className='fly-image' src={fly.fly_image} alt='Not available'/>
                                 <h3>Imitation: {fly.fly_imitation}</h3>
                             </div>
                         ) 
@@ -39,37 +39,18 @@ function Home({ featuredFlies, togglePopup, setSelectedFly, isOpen, setIsOpen, s
                 </div>
             </div>
             <div className='catch-of-week-container'>
-                <div className='catch-of-week-card'>
-                    <h2>Catch of the week</h2>
-                    <div className='catch-card'>
-                        <a href='#'>@socialmedialink</a>
-                        <img className='catch-image' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq4Q_j_5LKlFR7fCRhAf5muEwLOQG9Oebuow&usqp=CAU' alt='Not Available' />
-                    </div>
-                    <label>Fly used: 
-                        <img className='fly-used-image' src='https://www.johnkreft.com/wp-content/uploads/2019/09/Miasmic-October-Caddis-Pupa-Emerger.jpg' alt='Not Available' />
-                        <p>Miasmic October Caddis Pupa-Emerger</p>
-                    </label>
+                <h2>Catch of the week</h2>
+                <div className='catch-card'>
+                    <a href='#'>@socialmedialink</a>
+                    <img className='catch-image' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq4Q_j_5LKlFR7fCRhAf5muEwLOQG9Oebuow&usqp=CAU' alt='Not Available' />
                 </div>
+                <label>Fly used: 
+                    <img className='fly-used-image' src='https://www.johnkreft.com/wp-content/uploads/2019/09/Miasmic-October-Caddis-Pupa-Emerger.jpg' alt='Not Available' />
+                    <p>Miasmic October Caddis Pupa-Emerger</p>
+                </label>
             </div>
-            <section className="testimonials">
-                <div className="container">
-                    <div className="testimonial">
-                        <p>Customer Testimonial 1</p>
-                    </div>
-                    <div className="testimonial">
-                        <p>Customer Testimonial 2</p>
-                    </div>
-                </div>
-            </section>
-
-            <footer>
-                <div className="container">
-                    <ul>
-                        <li><a href="javascript:void(0)">Terms of Service</a></li>
-                        <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                        <li><a href="javascript:void(0)">FAQs</a></li>
-                    </ul>
-                </div>
+            <footer className='footer'>
+                <a href='/about-us'>About Us</a>
             </footer>
         </div>
     );

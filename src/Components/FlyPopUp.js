@@ -7,12 +7,12 @@ function FlyPopUp({isOpen, togglePopup, selectedFly}) {
             <div className='card-overlay'>
                 <div className='card'>
                     <h1 className='card-name'>{selectedFly.fly_name}</h1>
-                    <img className='fly-image' src={selectedFly.fly_image} alt='Not available' />
+                    <img className='fly-image-popup' src={selectedFly.fly_image} alt='Not available' />
                     <div className='details-container'>
                         <div className='details-left'>
                             <ul>{selectedFly.fly_type} fly</ul>
-                            <ul>Immitation:{selectedFly.fly_imitation} {selectedFly.fly_life_cycle}</ul>
-                            <ul>Tying tutorial:<a href='#'></a></ul>
+                            <ul>Immitation: {selectedFly.fly_imitation} {selectedFly.fly_life_cycle}</ul>
+                            <ul>Tying tutorial:<a href='#'> Youtube-link</a></ul>
                         </div>
                         <div className='details-right'>
                             <img className='bug-image' src={selectedFly.bug_image} alt='Not available' />

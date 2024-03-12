@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Flies from "./Flies";
 import SuggestionForm from "./SuggestionForm";
+import About from "./About";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
             <Routes>
                 <Route path="/flies" element={<Flies flies={flies} isOpen={isOpen} setIsOpen={setIsOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />
                 <Route path="/suggestions" element={<SuggestionForm />} />
+                <Route path="/about-us" element={<About />} />
                 <Route path="/" element={<Home featuredFlies={featuredFlies} isOpen={isOpen} setIsOpen={setIsOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />    
             </Routes>    
         </div>
