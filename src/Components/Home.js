@@ -20,7 +20,7 @@ function Home({ featuredFlies, togglePopup, setSelectedFly, isOpen, setIsOpen, s
         <div className='home'>
             <header className="header">
                 <h1>Welcome to Hatch Match</h1>
-                <img className='logo' src='https://media.istockphoto.com/id/1292289580/vector/dry-fly.jpg?s=612x612&w=0&k=20&c=oNnjoO5_t9hPTSczXk3j38TNvJCgymmlXCbGL7Bnha8=' alt='Hatch Match Logo' />
+                <img className='logo' src='https://cdn.pixabay.com/photo/2022/03/24/19/37/fly-fishing-7089758_960_720.png' alt='Hatch Match Logo' />
             </header>
             <main>Welcome to our comprehensive fly fishing fly encyclopedia, where every cast tells a story and every fly holds the promise of adventure. Explore our vast collection of meticulously curated flies, from timeless classics to innovative patterns, and uncover the secrets to unlocking the perfect catch. Whether you're a seasoned angler or just dipping your toes into the sport, let our wealth of knowledge guide you through the rich and vibrant world of fly fishing.</main>
             <div className="featured-flies">

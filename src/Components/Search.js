@@ -1,12 +1,13 @@
 import '../Styles/search.css'
+import { NavLink } from 'react-router-dom';
 
-function Search({ searchValue, handleSearchChange, handleSearchSubmit}) {
+function Search({ searchValue, handleSearchChange}) {
 
     return(
         <div className="search-container">
             <label className="search-label">Search:</label>
            <input className="search-input" value={searchValue} onChange={handleSearchChange}></input>
-           <button className="search-button" onClick={handleSearchSubmit}>Go</button>
+           <NavLink  className='search-button' to='/flies'>Go</NavLink>
         </div>     
     )
 }
