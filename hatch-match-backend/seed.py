@@ -28,7 +28,8 @@ def seed_database():
         Bugs.create("Stonefly", "Nymph", "https://news.orvis.com/wp-content/uploads/2018/05/stonefly1.jpg")
         Bugs.create("Stonefly", "Adult", "https://ars.els-cdn.com/content/image/3-s2.0-B978012370626300185X-gr5.jpg")
         Bugs.create("Midge", "Adult", "https://www.flyfishersatthecrossing.org/wp-content/uploads/2018/03/MIdge.jpg")
-        
+        Bugs.create("Baitfish", "Adult", "https://upload.wikimedia.org/wikipedia/commons/4/4c/Silverjaw_Minnow_%28Notropis_buccatus%29.JPG")
+        Bugs.create("Terrestrial", "Adult", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/American_Bird_Grasshopper.jpg/640px-American_Bird_Grasshopper.jpg")
 
         Flies.create("RiverKeeper Soft Hackle Cripple", "https://www.johnkreft.com/wp-content/uploads/2020/01/RiverKeeper-Soft-Hackle-Cripple-PMD.jpg", "Dry", "Mayfly", "Adult")
         Flies.create("Sparkle Dun PMD", "https://www.johnkreft.com/wp-content/uploads/2016/11/Sparkle-Dun-PMD.jpg.webp", "Dry", "Mayfly", "Adult")

@@ -6,18 +6,20 @@ function FlyPopUp({isOpen, togglePopup, selectedFly}) {
         return (
             <div className='card-overlay'>
                 <div className='card'>
-                    <h1 className='card-name'>{selectedFly.fly_name}</h1>
-                    <img className='fly-image-popup' src={selectedFly.fly_image} alt='Not available' />
+                    <div className='card-header'>
+                        <h1 className='card-name'>{selectedFly.fly_name}</h1>
+                        <button className='card-x' onClick={togglePopup}>X</button>
+                    </div>
+                    <div className='image-container'>
+                        <img className='fly-image-popup' src={selectedFly.fly_image} alt='Not available' />
+                        <img className='bug-image' src={selectedFly.bug_image} alt='Not available' />
+                    </div>
                     <div className='details-container'>
-                        <div className='details-left'>
-                            <ul>{selectedFly.fly_type} fly</ul>
-                            <ul>Immitation: {selectedFly.fly_imitation} {selectedFly.fly_life_cycle}</ul>
-                            <ul>Tying tutorial:<a href='#'> Youtube-link</a></ul>
-                        </div>
-                        <div className='details-right'>
-                            <img className='bug-image' src={selectedFly.bug_image} alt='Not available' />
-                        </div>
-
+                        <ul>Type: {selectedFly.fly_type} fly</ul>
+                        <ul>Immitation: {selectedFly.fly_imitation} {selectedFly.fly_life_cycle}</ul>
+                        <ul>Tying tutorial:<a href='#'> Youtube-link</a></ul>
+                        <ul>Materials: Coming Soon!</ul>
+                        <ul>Tying Instructions: Coming Soon!</ul>
                     </div>
                     <button className='card-button' onClick={togglePopup}>Close</button>
                 </div>

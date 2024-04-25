@@ -1,14 +1,13 @@
 import '../Styles/flies.css'
 import React, { useEffect, useState } from "react";
 import FlyPopUp from './FlyPopUp';
-import Search from './Search';
 
-function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePopup}) {
+function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePopup, searchValue}) {
 
     const [selectedType, setSelectedType] = useState('')
     const [selectedCycle, setSelectedCycle] = useState('')
     const [selectedSpecies, setSelectedSpecies] = useState('')
-    const [searchValue, setSearchValue] = useState('')
+    
     const [searchResult, setSearchResult] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [cardsPerPage] = useState(12);
@@ -45,9 +44,7 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
         setSelectedSpecies(e.target.value);
     }
 
-    function handleSearchChange(e) {
-        setSearchValue(e.target.value)
-    }
+
 
     function togglePage(pageNumber) {
         setCurrentPage(pageNumber);
@@ -75,10 +72,12 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
     } else {
         return (
         <div className='flies-container'>
-            <header>Flies</header>
+            <div className='flies-header-container'>
+                <h1>Flies</h1>
+            </div>
             <div className='filters-container'>
                 <div className='filter_type'>
-                    <h2>Fly types</h2>
+                    <h3>Fly<br/>Types</h3>
                     <select value={selectedType} onChange={handleTypeChange}>
                         <option value=''> All </option>
                         <option value='Dry'>Dry Flies</option>
@@ -87,7 +86,7 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
                     </select>
                 </div>
                 <div className='filter_cycle'>
-                    <h2>Life Cycle</h2>
+                    <h3>Life<br/> Cycle</h3>
                     <select value={selectedCycle} onChange={handleCycleChange}>
                         <option value=''> All </option>
                         <option value='Nymph'>Nymph</option>
@@ -96,20 +95,20 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
                     </select>
                 </div>
                 <div className='filter_species'>
-                    <h2>Species</h2>
+                    <h3>Immitation<br/>Species</h3>
                     <select value={selectedSpecies} onChange={handleSpeciesChange}>
                         <option value=''>All</option>
                         <option value='Mayfly'>Mayfly</option>
                         <option value='Caddis'>Caddis</option>
                         <option value='Stonefly'>Stonefly</option>
                         <option value='Midge'>Midge</option>
-                        <option value='Terrestrials'>Terrestrials</option>
+                        <option value='Terrestrial'>Terrestrial</option>
                         <option value='Baitfish'>Baitfish</option>
                     </select>
                 </div>
             </div>
             <div className='search-container'>
-                <Search  searchValue={searchValue} setSearchValue={setSearchValue} handleSearchChange={handleSearchChange}/>
+                
             </div>
             <div>
                 <FlyPopUp isOpen={isOpen} togglePopup={togglePopup} selectedFly={selectedFly}/>

@@ -1,4 +1,4 @@
-header {
+.flies-header-container {
     font-size: 34px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -48,11 +48,21 @@ header {
   display: flex;
 }
 
-.search-container {
-  position: absolute;
-  top: 0;
-  right: 0;
+.filter_type {
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
+
+.filter_cycle {
+  margin: 5px;
+}
+
+.filter_species {
+  margin: 5px;
+}
+
 
 .pagination {
   margin-top: 20px;

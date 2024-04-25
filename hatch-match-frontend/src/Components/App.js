@@ -5,6 +5,9 @@ import Home from "./Home";
 import Flies from "./Flies";
 import SuggestionForm from "./SuggestionForm";
 import About from "./About";
+import Header from "./Header";
+import Search from "./Search";
+import '../Styles/app.css'
 
 
 function App() {
@@ -13,6 +16,7 @@ function App() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedFly, setSelectedFly] = useState([])
     const [featuredFlies, setFeaturedFlies] = useState([]);
+    const [searchValue, setSearchValue] = useState('')
 
     useEffect(()=> {
         fetchFliesData(); 
@@ -50,13 +54,21 @@ function App() {
         }
 
         return selectedFlies;
-    } 
+    }
+    
+    function handleSearchChange(e) {
+        setSearchValue(e.target.value)
+    }
 
     return(
         <div className="App">
-            <Navbar />
+            <Header />
+            <div className="navigation-container"> 
+                <Navbar />
+                <Search  searchValue={searchValue} setSearchValue={setSearchValue} handleSearchChange={handleSearchChange}/>
+            </div>
             <Routes>
-                <Route path="/flies" element={<Flies flies={flies} isOpen={isOpen} setIsOpen={setIsOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />
+                <Route path="/flies" element={<Flies flies={flies} isOpen={isOpen} setIsOpen={setIsOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup} searchValue={searchValue}/>} />
                 <Route path="/suggestions" element={<SuggestionForm />} />
                 <Route path="/about-us" element={<About />} />
                 <Route path="/" element={<Home featuredFlies={featuredFlies} isOpen={isOpen} setIsOpen={setIsOpen} selectedFly={selectedFly} setSelectedFly={setSelectedFly} togglePopup={togglePopup}/>} />    

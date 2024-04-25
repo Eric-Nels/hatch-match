@@ -1,18 +1,17 @@
 .navbar {
-    background-image: url('https://freerangeamerican.us/wp-content/uploads/2022/01/Image-from-iOS-1-scaled.jpg');
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center; 
-    padding: 100px;
-    justify-content: space-evenly;
+    padding: 10px;
+    justify-content:flex-start;
 }
 
 .navbar a {
     color: black;
-    text-decoration: none; 
+    text-decoration: none;
+    margin: 5px; 
     padding: 10px 15px; 
-    border-radius: 5px; 
+    border-radius: 5px;
+    border-color: white; 
     transition: background-color 0.3s; 
 }
 
@@ -20,15 +19,21 @@
 .navbar a.active {
     color: white;
     background-color: black;
+    border-radius: 5px;
+    border-color: orange; 
 }
 
 
 .navbar a:hover {
     background-color: #e0e0e0; 
     color: black;
+    border-radius: 5px;
+    border-color: black; 
 }
 
 .navbar a {
     background-color: orange;
-    color: black
+    color: black;
+    border-radius: 5px;
+    border-color: white;
 }
