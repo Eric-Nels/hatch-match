@@ -29,6 +29,7 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
             const searchMatch = fly.fly_name.toLowerCase().includes(searchValue.toLowerCase());
             return typeMatch && cycleMatch && speciesMatch && searchMatch;
         });
+        console.log(filteredFlies)
         setSearchResult(filteredFlies);
     }
 
@@ -73,7 +74,7 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
         return (
         <div className='flies-container'>
             <div className='flies-header-container'>
-                <h1>Flies</h1>
+                <h2>Flies</h2>
             </div>
             <div className='filters-container'>
                 <div className='filter_type'>
@@ -116,7 +117,7 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
             <div className='fly-grid'>
                 {currentCards.map((fly) => {
                     return (
-                        <div key={fly.id} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
+                        <div key={fly.fly_id} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
                             <h2 onClick={togglePopup}>{fly.fly_name}</h2>
                             <img  className='fly-image' src={fly.fly_image} alt='Image not available'/>
                         </div>
