@@ -20,14 +20,19 @@ def get_flies():
         conn = get_db_connection()
         cursor = conn.cursor()
         query = """
-            SELECT flies.name AS fly_name, 
+            SELECT flies.fly_id AS fly_id,
+                   flies.name AS fly_name, 
                    flies.image AS fly_image, 
                    flies.type AS fly_type,
                    flies.imitation AS fly_imitation,
                    flies.life_cycle AS fly_life_cycle,
-                   bugs.name AS bug_name, bugs.image AS bug_image
+                   flies.materials AS fly_materials,
+                   flies.instructions AS fly_instructions,
+                   bugs.name AS bug_name, 
+                   bugs.image AS bug_image
             FROM flies
             INNER JOIN bugs ON flies.imitation = bugs.name AND flies.life_cycle = bugs.life_cycle
+            ORDER BY fly_name
         """
 
         cursor.execute(query)

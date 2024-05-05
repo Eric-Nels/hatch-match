@@ -1,13 +1,15 @@
 from . import DatabaseManager
 
 class Flies:
-    def __init__(self, name, image, type, imitation, life_cycle, id=None):
+    def __init__(self, name, image, type, imitation, life_cycle, materials, instructions, id=None):
         self.id = id
         self.name = name
         self.image = image
         self.type = type
         self.imitation = imitation
         self.life_cycle = life_cycle
+        self.instructions = instructions
+        self.materials = materials
 
     def __repr__(self):
         return f"<Fly {self.id}: {self.name}, {self.type}, {self.imitation}, {self.life_cycle}>"
@@ -23,7 +25,9 @@ class Flies:
                 image TEXT,
                 type TEXT,
                 imitation TEXT,
-                life_cycle TEXT
+                life_cycle TEXT,
+                materials TEXT,
+                instructions TEXT
                 )
             """
             cursor.execute(sql)
@@ -43,15 +47,15 @@ class Flies:
         """
         with DatabaseManager() as cursor:
             sql = """
-                INSERT INTO flies (name, image, type, imitation, life_cycle)
-                VALUES (?, ?, ?, ?, ?)
+                INSERT INTO flies (name, image, type, imitation, life_cycle, materials, instructions)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
             """
-            cursor.execute(sql, (self.name, self.image, self.type, self.imitation, self.life_cycle))
+            cursor.execute(sql, (self.name, self.image, self.type, self.imitation, self.life_cycle, self.materials, self.instructions))
             self.id = cursor.lastrowid
 
     @classmethod
-    def create(cls, name, image, type, imitation, life_cycle):
+    def create(cls, name, image, type, imitation, life_cycle, materials, instructions):
         """ Initialize a new Fly instance and save the object to the database """
-        fly = cls(name, image, type, imitation, life_cycle)
+        fly = cls(name, image, type, imitation, life_cycle, materials, instructions)
         fly.save()
         return fly
