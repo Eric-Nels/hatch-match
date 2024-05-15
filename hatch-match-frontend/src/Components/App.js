@@ -26,6 +26,7 @@ function App() {
         fetch('https://ernelson.pythonanywhere.com/api/flies')
             .then((r) => r.json())
             .then((data) => {
+                console.log(data)
                 setFlies(data);
                 console.log(flies)
             })
@@ -33,6 +34,7 @@ function App() {
     }
     
     useEffect(() => {
+        console.log(flies);
         if (flies.length > 0) {
             const selectedFlies = selectThreeRandomFlies();
             setFeaturedFlies(selectedFlies);
