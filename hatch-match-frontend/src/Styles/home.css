@@ -1,0 +1,84 @@
+/* Styles for Header Section */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.into-text {
+    text-align: center;
+    font-size: larger;
+}
+
+.featured-fly-header {
+    text-align: center;
+}
+
+.featured-flies-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.catch-of-week-container {
+    margin-bottom: 20px;
+}
+
+.catch-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+
+.fly-used {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fly-used-image {
+    width: 30%;
+}
+
+.footer {
+    background-color: gray;
+    width: 100%;
+}
+
+.fly-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.fly-card h2 {
+    font-size: 90%;
+}
+
+.fly-card h3 {
+    font-size: smaller;
+}
+
+.fly-image {
+    width: 100%; 
+    max-height: 200px; 
+    object-fit: cover; 
+}
+
+

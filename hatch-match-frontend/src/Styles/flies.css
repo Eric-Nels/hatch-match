@@ -1,0 +1,89 @@
+.flies-header-container {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.flies-container {
+  position: relative;
+  padding-top: 15px;
+}
+
+.fly-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  justify-content: center; 
+  align-items: center; 
+  gap: 20px; 
+  max-width: 1200px; 
+  margin: 20px auto; 
+  padding: 20px; 
+}
+
+.fly-card {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  border: 5px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 280px;
+}
+
+.fly-card h2 {
+  text-align: center;
+}
+
+.fly-card img {
+  width: 300px;
+  height: 300px;
+}
+
+.filters-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.filter_type {
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.filter_cycle {
+  margin: 5px;
+}
+
+.filter_species {
+  margin: 5px;
+}
+
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #e9e9e9;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
