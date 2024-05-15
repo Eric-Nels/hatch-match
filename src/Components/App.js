@@ -23,7 +23,7 @@ function App() {
     }, []);
 
     function fetchFliesData() {
-        fetch('http://127.0.0.1:5000/api/flies')
+        fetch('https://ernelson.pythonanywhere.com/api/flies')
             .then((r) => r.json())
             .then((data) => {
                 setFlies(data);
