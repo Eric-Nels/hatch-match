@@ -1,6 +1,14 @@
 .navigation-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column; /* Change direction to column for mobile */
+    align-items: center; /* Center items vertically on mobile */
+}
+
+@media only screen and (min-width: 768px) {
+    /* Apply styles only for screens wider than 768px (desktop) */
+    .navigation-container {
+        flex-direction: row; /* Revert direction to row for desktop */
+        justify-content: space-between; /* Align items horizontally with space between on desktop */
+    }
 }
 
