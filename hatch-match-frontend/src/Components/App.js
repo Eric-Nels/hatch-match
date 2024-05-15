@@ -62,11 +62,6 @@ function App() {
         setSearchValue(e.target.value)
     }
 
-    // Render loading indicator or the app content based on the state of 'flies'
-    if (flies.length === 0) {
-        return <div>Loading...</div>;
-    }
-
     return(
         <div className="App">
             <Header />

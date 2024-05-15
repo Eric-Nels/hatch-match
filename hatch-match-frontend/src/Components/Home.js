@@ -29,10 +29,10 @@ function Home({ featuredFlies, togglePopup, setSelectedFly, isOpen, setIsOpen, s
                 <div className="featured-flies-container">
                     {featuredFlies.map((fly) => {
                         return(
-                            <div key={fly.fly_id} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
-                                <h2 >{fly.fly_name}</h2>
-                                <img className='fly-image' src={fly.fly_image} alt='Not available'/>
-                                <h3>Imitation: {fly.fly_imitation}</h3>
+                            <div key={fly[0]} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
+                                <h2 >{fly[1]}</h2>
+                                <img className='fly-image' src={fly[2]} alt='Not available'/>
+                                <h3>Imitation: {fly[4]}</h3>
                             </div>
                         ) 
                     })}

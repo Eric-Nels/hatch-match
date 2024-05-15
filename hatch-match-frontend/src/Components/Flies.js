@@ -23,10 +23,10 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
 
     function filterFlies() {
         let filteredFlies = flies.filter(fly => {
-            const typeMatch = !selectedType || fly.fly_type === selectedType;
-            const cycleMatch = !selectedCycle || fly.fly_life_cycle === selectedCycle;
-            const speciesMatch = !selectedSpecies || fly.fly_imitation === selectedSpecies;
-            const searchMatch = fly.fly_name.toLowerCase().includes(searchValue.toLowerCase());
+            const typeMatch = !selectedType || fly[3] === selectedType;
+            const cycleMatch = !selectedCycle || fly[5] === selectedCycle;
+            const speciesMatch = !selectedSpecies || fly[4] === selectedSpecies;
+            const searchMatch = fly[1].toLowerCase().includes(searchValue.toLowerCase());
             return typeMatch && cycleMatch && speciesMatch && searchMatch;
         });
         console.log(filteredFlies)
@@ -117,9 +117,9 @@ function Flies({flies, selectedFly, setSelectedFly, isOpen, setIsOpen, togglePop
             <div className='fly-grid'>
                 {currentCards.map((fly) => {
                     return (
-                        <div key={fly.fly_id} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
-                            <h2 onClick={togglePopup}>{fly.fly_name}</h2>
-                            <img  className='fly-image' src={fly.fly_image} alt='Image not available'/>
+                        <div key={fly[0]} className="fly-card" onClick={() => { togglePopup(); setSelectedFly(fly)}}>
+                            <h2 onClick={togglePopup}>{fly[1]}</h2>
+                            <img  className='fly-image' src={fly[2]} alt='Image not available'/>
                         </div>
                     )                    
                 })}
